@@ -1,0 +1,233 @@
+{
+    "type": "object",
+    "properties": {
+        "connectorName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The Connector model definition",
+            "properties": {
+                "id": {
+                    "description": "Connector id",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "kind": {
+                    "description": "Connector kind (eg aws)",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Connector name",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "properties": {
+                    "description": "Connector properties",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "billingModel": {
+                            "description": "Connector billing model",
+                            "enum": [
+                                "trial",
+                                "autoUpgrade",
+                                "premium",
+                                "expired"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "ConnectorBillingModel"
+                            },
+                            "x-ms-mutability": [
+                                "read",
+                                "create",
+                                "update"
+                            ]
+                        },
+                        "collectionInfo": {
+                            "description": "Collection information",
+                            "readOnly": true,
+                            "properties": {
+                                "error": {
+                                    "description": "Error information of last collection",
+                                    "properties": {
+                                        "errorCode": {
+                                            "description": "Short error code",
+                                            "readOnly": true,
+                                            "type": "string"
+                                        },
+                                        "errorInnerMessage": {
+                                            "description": "External Provider error message",
+                                            "readOnly": true,
+                                            "type": "string"
+                                        },
+                                        "errorMessage": {
+                                            "description": "Detailed error message",
+                                            "readOnly": true,
+                                            "type": "string"
+                                        },
+                                        "errorStartTime": {
+                                            "description": "Time the error started occurring (Last time error occurred in lastChecked)",
+                                            "format": "date-time",
+                                            "readOnly": true,
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "lastChecked": {
+                                    "description": "Last time the data acquisition process initiated connecting to the external provider",
+                                    "format": "date-time",
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "x-ms-mutability": [
+                                        "read"
+                                    ]
+                                },
+                                "lastUpdated": {
+                                    "description": "Last time the external data was updated into Azure",
+                                    "format": "date-time",
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "x-ms-mutability": [
+                                        "read"
+                                    ]
+                                },
+                                "sourceLastUpdated": {
+                                    "description": "Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)",
+                                    "format": "date-time",
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "x-ms-mutability": [
+                                        "read"
+                                    ]
+                                }
+                            },
+                            "type": "object",
+                            "nullable": true
+                        },
+                        "createdOn": {
+                            "description": "Connector definition creation datetime",
+                            "format": "date-time",
+                            "readOnly": true,
+                            "type": "string",
+                            "x-ms-mutability": [
+                                "read"
+                            ]
+                        },
+                        "credentialsKey": {
+                            "description": "Credentials authentication key (eg AWS ARN)",
+                            "type": "string",
+                            "x-ms-mutability": [
+                                "read",
+                                "create",
+                                "update"
+                            ]
+                        },
+                        "credentialsSecret": {
+                            "description": "Credentials secret (eg AWS ExternalId)",
+                            "type": "string",
+                            "x-ms-mutability": [
+                                "create",
+                                "update"
+                            ]
+                        },
+                        "daysTrialRemaining": {
+                            "description": "Number of days remaining of trial",
+                            "readOnly": true,
+                            "type": "integer",
+                            "x-ms-mutability": [
+                                "read"
+                            ],
+                            "nullable": true
+                        },
+                        "defaultManagementGroupId": {
+                            "description": "Default ManagementGroupId",
+                            "type": "string",
+                            "x-ms-mutability": [
+                                "read",
+                                "create",
+                                "update"
+                            ]
+                        },
+                        "displayName": {
+                            "description": "Connector DisplayName",
+                            "type": "string",
+                            "x-ms-mutability": [
+                                "read",
+                                "create",
+                                "update"
+                            ]
+                        },
+                        "modifiedOn": {
+                            "description": "Connector last modified datetime",
+                            "format": "date-time",
+                            "readOnly": true,
+                            "type": "string",
+                            "x-ms-mutability": [
+                                "read"
+                            ]
+                        },
+                        "providerAccountId": {
+                            "description": "Connector providerAccountId (determined from credentials)",
+                            "readOnly": true,
+                            "type": "string",
+                            "x-ms-mutability": [
+                                "read"
+                            ]
+                        },
+                        "reportId": {
+                            "description": "Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)",
+                            "type": "string",
+                            "x-ms-mutability": [
+                                "read",
+                                "create",
+                                "update"
+                            ]
+                        },
+                        "status": {
+                            "description": "Connector status",
+                            "enum": [
+                                "active",
+                                "error",
+                                "suspended"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "ConnectorStatus"
+                            },
+                            "x-ms-mutability": [
+                                "read",
+                                "create",
+                                "update"
+                            ]
+                        },
+                        "subscriptionId": {
+                            "description": "Billing SubscriptionId",
+                            "type": "string",
+                            "x-ms-mutability": [
+                                "read",
+                                "create",
+                                "update"
+                            ]
+                        }
+                    },
+                    "type": "object"
+                },
+                "type": {
+                    "description": "Connector type",
+                    "readOnly": true,
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "x-ms-azure-resource": true
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

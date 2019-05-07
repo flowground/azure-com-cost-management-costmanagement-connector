@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+        "managementGroupId": {
+            "required": true,
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        },
+        "_view": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "FullHierarchy",
+                "GroupsOnly",
+                "SubscriptionsOnly",
+                "ExternalSubscriptionsOnly",
+                "Audit"
+            ]
+        }
+    }
+}

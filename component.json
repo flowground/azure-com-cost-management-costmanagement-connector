@@ -1,0 +1,644 @@
+{
+    "title": "CostManagementClient",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/cost-management-costmanagement/2019-03-01-preview/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow.",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Forecast_UsageByDepartment": {
+            "main": "./lib/actions/Forecast_UsageByDepartment.js",
+            "title": "Forecast the usage data for department.",
+            "description": "Forecast the usage data for department.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Forecast_UsageByDepartment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Query_UsageByDepartment": {
+            "main": "./lib/actions/Query_UsageByDepartment.js",
+            "title": "Query the usage data for department.",
+            "description": "Query the usage data for department.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Query_UsageByDepartment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Dimensions_ListByDepartment": {
+            "main": "./lib/actions/Dimensions_ListByDepartment.js",
+            "title": "Lists the dimensions by Department Id.",
+            "description": "Lists the dimensions by Department Id.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Dimensions_ListByDepartment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Forecast_UsageByEnrollmentAccount": {
+            "main": "./lib/actions/Forecast_UsageByEnrollmentAccount.js",
+            "title": "Forecast the usage data for an enrollment account.",
+            "description": "Forecast the usage data for an enrollment account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Forecast_UsageByEnrollmentAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Query_UsageByEnrollmentAccount": {
+            "main": "./lib/actions/Query_UsageByEnrollmentAccount.js",
+            "title": "Query the usage data for an enrollment account.",
+            "description": "Query the usage data for an enrollment account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Query_UsageByEnrollmentAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Dimensions_ListByEnrollmentAccount": {
+            "main": "./lib/actions/Dimensions_ListByEnrollmentAccount.js",
+            "title": "Lists the dimensions by Enrollment Account Id.",
+            "description": "Lists the dimensions by Enrollment Account Id.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Dimensions_ListByEnrollmentAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Forecast_UsageByBillingAccount": {
+            "main": "./lib/actions/Forecast_UsageByBillingAccount.js",
+            "title": "Forecast the usage data for billing account.",
+            "description": "Forecast the usage data for billing account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Forecast_UsageByBillingAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Query_UsageByBillingAccount": {
+            "main": "./lib/actions/Query_UsageByBillingAccount.js",
+            "title": "Query the usage data for billing account.",
+            "description": "Query the usage data for billing account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Query_UsageByBillingAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Dimensions_ListByBillingAccount": {
+            "main": "./lib/actions/Dimensions_ListByBillingAccount.js",
+            "title": "Lists the dimensions by billingAccount Id.",
+            "description": "Lists the dimensions by billingAccount Id.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Dimensions_ListByBillingAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ShowbackRules_List": {
+            "main": "./lib/actions/ShowbackRules_List.js",
+            "title": "Get list all Showback Rules.",
+            "description": "Get list all Showback Rules.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ShowbackRules_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ShowbackRule_GetBillingAccountId": {
+            "main": "./lib/actions/ShowbackRule_GetBillingAccountId.js",
+            "title": "Gets the showback rule by rule name.",
+            "description": "Gets the showback rule by rule name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ShowbackRule_GetBillingAccountId.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ShowbackRule_CreateUpdateRule": {
+            "main": "./lib/actions/ShowbackRule_CreateUpdateRule.js",
+            "title": "Create/Update showback rule for billing account.",
+            "description": "Create/Update showback rule for billing account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ShowbackRule_CreateUpdateRule.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CloudConnector_List": {
+            "main": "./lib/actions/CloudConnector_List.js",
+            "title": "List all cloud connector definitions",
+            "description": "List all cloud connector definitions",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CloudConnector_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CloudConnector_Delete": {
+            "main": "./lib/actions/CloudConnector_Delete.js",
+            "title": "Delete a cloud connector definition",
+            "description": "Delete a cloud connector definition",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CloudConnector_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CloudConnector_Get": {
+            "main": "./lib/actions/CloudConnector_Get.js",
+            "title": "Get a cloud connector definition",
+            "description": "Get a cloud connector definition",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CloudConnector_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CloudConnector_Update": {
+            "main": "./lib/actions/CloudConnector_Update.js",
+            "title": "Update a cloud connector definition",
+            "description": "Update a cloud connector definition",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CloudConnector_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CloudConnector_CreateOrUpdate": {
+            "main": "./lib/actions/CloudConnector_CreateOrUpdate.js",
+            "title": "Create or update a cloud connector definition",
+            "description": "Create or update a cloud connector definition",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CloudConnector_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalBillingAccount_List": {
+            "main": "./lib/actions/ExternalBillingAccount_List.js",
+            "title": "List all ExternalBillingAccount definitions",
+            "description": "List all ExternalBillingAccount definitions",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalBillingAccount_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalBillingAccount_Get": {
+            "main": "./lib/actions/ExternalBillingAccount_Get.js",
+            "title": "Get a ExternalBillingAccount definition",
+            "description": "Get a ExternalBillingAccount definition",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalBillingAccount_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalSubscription_ListByExternalBillingAccount": {
+            "main": "./lib/actions/ExternalSubscription_ListByExternalBillingAccount.js",
+            "title": "List all ExternalSubscriptions by ExternalBillingAccount definitions",
+            "description": "List all ExternalSubscriptions by ExternalBillingAccount definitions",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalSubscription_ListByExternalBillingAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalSubscription_List": {
+            "main": "./lib/actions/ExternalSubscription_List.js",
+            "title": "List all ExternalSubscription definitions",
+            "description": "List all ExternalSubscription definitions",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalSubscription_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalSubscription_Get": {
+            "main": "./lib/actions/ExternalSubscription_Get.js",
+            "title": "Get an ExternalSubscription definition",
+            "description": "Get an ExternalSubscription definition",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalSubscription_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Operations_List": {
+            "main": "./lib/actions/Operations_List.js",
+            "title": "Lists all of the available consumption REST API operations.",
+            "description": "Lists all of the available consumption REST API operations.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Operations_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Forecast_UsageByManagmentGroup": {
+            "main": "./lib/actions/Forecast_UsageByManagmentGroup.js",
+            "title": "Lists the usage data for management group.",
+            "description": "Lists the usage data for management group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Forecast_UsageByManagmentGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Query_UsageByManagmentGroup": {
+            "main": "./lib/actions/Query_UsageByManagmentGroup.js",
+            "title": "Lists the usage data for management group.",
+            "description": "Lists the usage data for management group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Query_UsageByManagmentGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Dimensions_ListByManagementGroup": {
+            "main": "./lib/actions/Dimensions_ListByManagementGroup.js",
+            "title": "Lists the dimensions by managementGroup Id.",
+            "description": "Lists the dimensions by managementGroup Id.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Dimensions_ListByManagementGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalSubscription_ListByManagementGroup": {
+            "main": "./lib/actions/ExternalSubscription_ListByManagementGroup.js",
+            "title": "List all ExternalSubscription definitions for Management Group",
+            "description": "List all ExternalSubscription definitions for Management Group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalSubscription_ListByManagementGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalSubscription_UpdateByManagementGroup": {
+            "main": "./lib/actions/ExternalSubscription_UpdateByManagementGroup.js",
+            "title": "Associates ExternalSubscription with the management group",
+            "description": "Associates ExternalSubscription with the management group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalSubscription_UpdateByManagementGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Entities_ListByManagementGroup": {
+            "main": "./lib/actions/Entities_ListByManagementGroup.js",
+            "title": "List all entities (Management Groups, Subscriptions, ExternalSubscriptions, etc.) focusing on a particular group for the authenticated user.",
+            "description": "List all entities (Management Groups, Subscriptions, ExternalSubscriptions, etc.) focusing on a particular group for the authenticated user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Entities_ListByManagementGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Forecast_UsageBySubscription": {
+            "main": "./lib/actions/Forecast_UsageBySubscription.js",
+            "title": "Forecast the usage data for subscriptionId.",
+            "description": "Forecast the usage data for subscriptionId.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Forecast_UsageBySubscription.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Query_UsageBySubscription": {
+            "main": "./lib/actions/Query_UsageBySubscription.js",
+            "title": "Query the usage data for subscriptionId.",
+            "description": "Query the usage data for subscriptionId.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Query_UsageBySubscription.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Dimensions_ListBySubscription": {
+            "main": "./lib/actions/Dimensions_ListBySubscription.js",
+            "title": "Lists the dimensions by subscription Id.",
+            "description": "Lists the dimensions by subscription Id.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Dimensions_ListBySubscription.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Dimensions_ListByResourceGroup": {
+            "main": "./lib/actions/Dimensions_ListByResourceGroup.js",
+            "title": "Lists the dimensions by resource group Id.",
+            "description": "Lists the dimensions by resource group Id.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Dimensions_ListByResourceGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Forecast_UsageByResourceGroup": {
+            "main": "./lib/actions/Forecast_UsageByResourceGroup.js",
+            "title": "Forecast the usage data for subscriptionId and resource group.",
+            "description": "Forecast the usage data for subscriptionId and resource group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Forecast_UsageByResourceGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Query_UsageByResourceGroup": {
+            "main": "./lib/actions/Query_UsageByResourceGroup.js",
+            "title": "Query the usage data for subscriptionId and resource group.",
+            "description": "Query the usage data for subscriptionId and resource group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Query_UsageByResourceGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

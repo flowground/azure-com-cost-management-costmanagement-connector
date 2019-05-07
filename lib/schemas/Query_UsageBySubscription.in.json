@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {},
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
